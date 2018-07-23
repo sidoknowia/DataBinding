@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <label>Id is - title</label>
+    <input dh-bind="title" type="text" />
+
+    <br>
+
+    <label>Id is math_random-</label>
+    <input id="math_random" type="text" />
+
+    <br>
+
+    <label>Click button to see current scope value</label>
+    <button onclick="getScope()">Click Me</button>
+
+    <h3>Open Console to see logged results</h3>
+
+    <h4>Code Running on page is - </h4>
+    <div>
+        var d = new DH_Bind(function(data){<br>
+            document.getElementById('math_random').value = data['a'];<br>
+        });<br>
+
+        <br>
+
+        // Simulating an ajax call <br>
+        setInterval(function(){ <br>
+            d.ajax_call('a')    <br>
+        }, 3000 );<br>
+
+        <br>
+
+        function getScope(){ <br>
+            console.log(d)<br>
+        }<br>
+
+    </div>
+
+    <script rel="" src="/home/siddharth/projects/vndly-web/vndly/static/DynamicHtml/dynamic_html.js"></script>
+    <script>
+
+
+        var d = new DH_Bind(function(data){
+            document.getElementById('math_random').value = data['a'];
+        });
+
+
+        setInterval(function(){
+            d.ajax_call('a')
+
+
+        }, 3000 );
+
+
+        function getScope(){
+            console.log(d.get_scope_elements())
+        }
+
+
+
+    </script>
+
+</body>
+</html>
